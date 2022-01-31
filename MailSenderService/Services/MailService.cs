@@ -34,9 +34,7 @@ namespace MailSenderService.Services
             var email = new MimeMessage();
             email.Sender = MailboxAddress.Parse(_mailSettings.Mail);
             email.Subject = mailRequest.Subject;
-            var builder = new BodyBuilder();
-            builder.HtmlBody = mailRequest.Body;
-            email.Body = builder.ToMessageBody();
+            var builder = new BodyBuilder();            
             if (mailRequest.PdfUrls != null)
             {
                 byte[] fileBytes = { };
@@ -56,6 +54,8 @@ namespace MailSenderService.Services
                     }
                 }
             }
+            builder.HtmlBody = mailRequest.Body;
+            email.Body = builder.ToMessageBody();
             using (var smtp = new SmtpClient())
             {
                 smtp.Connect(_mailSettings.Host, _mailSettings.Port, SecureSocketOptions.StartTls);
