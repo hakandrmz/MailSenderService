@@ -36,19 +36,3 @@ namespace MailSenderService.Controllers
         }
     }
 }
-
-/*
-
-{
-    "ToEmail": [
-        "hakan.durmaz@logo.com.tr",
-        "durmazhakan@icloud.com"
-    ],
-    "Subject": "Test Subject",
-    "Boy": "Test Body",
-    "PdfUrls": [
-        "http://localhost:84/Default.aspx?DosyaNo=TLP101",
-        "http://localhost:84/Default.aspx?DosyaNo=TLP102"
-    ]    
-}
- * */

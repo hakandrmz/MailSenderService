@@ -49,8 +49,7 @@ namespace MailSenderService.Services
                             fileBytes = ms.ToArray();
                         }
                         Uri myUri = new Uri(url);
-                        string dosyaNo = System.Web.HttpUtility.ParseQueryString(myUri.Query).Get("DosyaNo");
-                        builder.Attachments.Add(dosyaNo + ".pdf", fileBytes, new ContentType("application", "pdf"));
+                        builder.Attachments.Add(email.Subject + ".pdf", fileBytes, new ContentType("application", "pdf"));
                     }
                 }
             }
